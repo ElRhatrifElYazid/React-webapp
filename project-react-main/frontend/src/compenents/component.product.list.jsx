@@ -21,7 +21,7 @@ export function ProductList() {
   }
 
   return (<>
-
+<Link to={"/products/new"} class=" btn btn-ajouter" > <i class="fas fa-plus"></i> Nouveau produit</Link>
     <div class="table-wrapper">
       <table class="fl-table">
         <tr>
@@ -33,25 +33,25 @@ export function ProductList() {
         <tbody id="tbody">
           {products.map((elem, index) => (
             <tr key={index}>
-              <td className="text-center">{elem.name}</td>
-              <td className="text-center">{elem.price}</td>
-              <td className="text-center">
-                {/* Bouton de suppression avec une icône de FontAwesome */}
-                <button className="btn btn-supprimer" onClick={() => deleteProduct(elem._id)}>
-                  <i className="fas fa-trash icon-rouge"></i> 
+              <td class="text-center">{elem.name}</td>
+              <td class="text-center">{elem.price}</td>
+              <td class="text-center">
+                
+                <button class="btn btn-supprimer" onClick={() => deleteProduct(elem._id)}>
+                  <i class="fas fa-trash icon-rouge"></i> 
                 </button>
 
-                {/* Bouton de modification avec une icône de FontAwesome */}
-                <button   className="btn btn-modifier" onClick={() => deleteProduct(elem._id)}>
-                  <i className="fas fa-pencil-alt icon-bleue"></i>
-                </button>
+              
+                <Link to={`/products/edit/${elem._id}`} class="btn btn-modifier" >
+                  <i class="fas fa-pencil-alt icon-bleue"></i>
+               </Link>
               </td>
             </tr>
           ))}
         </tbody>
 
       </table>
-      <Link to={"/products/new"} >Nouveau produit</Link>
+      
     </div>
 
   </>);
